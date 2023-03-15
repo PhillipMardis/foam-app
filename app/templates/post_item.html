@@ -1,0 +1,17 @@
+{% extends 'home.html' %} {% block content %}
+<button><a href="{% url "home" %}">Home</a></button>
+<h1>POST AN ITEM FOR SALE</h1>
+
+<form action="{% url "post" %}" method="POST">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button>Save</button>
+
+
+
+</form>
+
+{% endblock content %}
