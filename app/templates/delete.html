@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<h2>Delete item?</h2>
+
+<h3>{{ item.name }}</h3>
+<p>{{ item.desc }}</p>
+<p>{{ item.cond }}</p>
+<p>{{ item.price }}</p>
+
+<a href="{% url "buy" %}">Cancel</a>
+<button><a href="{% url "successful_delete" item.id %}">Confirm</a></button>
+
+{% endblock content %}

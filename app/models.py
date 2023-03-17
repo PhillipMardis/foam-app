@@ -15,10 +15,19 @@ class postModel(models.Model):
 
 
 class buyModel(models.Model):
-    CHOICES = (
-        ("name", "name"),
-        ("condition", "condition"),
-        ("price", "price"),
+    CONDITION = (
+        ("new", "new"),
+        ("like-new", "like-new"),
+        ("used-good", "used-good"),
+        ("used", "used"),
     )
 
-    browse_by = models.CharField(choices=CHOICES, max_length=100)
+    PRICE = (
+        ("$1-$30", "$1-$30"),
+        ("$31-$50", "$31-$50"),
+        ("$51-$100", "$51-$100"),
+        ("+$100", "+$100"),
+    )
+
+    cond = models.CharField(choices=CONDITION, max_length=100, default=None)
+    price = models.CharField(choices=PRICE, max_length=100, default=None)
