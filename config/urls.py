@@ -23,6 +23,17 @@ urlpatterns = [
     path("signup/", views.signupView, name="signup"),
     path("login/", views.loginView, name="login"),
     path("buy/", views.buyView, name="buy"),
+    path("purchase/<pk>/", views.purchaseView, name="purchase"),
+    path(
+        "successful_purchase/<pk>/",
+        views.successful_purchaseView,
+        name="successful_purchase",
+    ),
+    path("update/<pk>/", views.updateView, name="update"),
+    path("delete/<pk>/", views.deleteView, name="delete"),
+    path(
+        "successful_delete/<pk>/", views.successful_deleteView, name="successful_delete"
+    ),
     path("allusers/", views.allusersView, name="allusers"),
     path("admin/", admin.site.urls),
 ]

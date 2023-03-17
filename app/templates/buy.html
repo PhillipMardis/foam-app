@@ -1,4 +1,35 @@
 {% extends 'home.html' %} {% block content %}
+
+<button><a href="{% url "home" %}">Home</a></button>
 <h1>BROWSE FOR AN ITEM</h1>
+<h3>Filter by:</h3>
+
+<form action="{% url "buy" %}" method="POST">
+
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+    
+    <button>GO!</button>
+
+</form>
+
+{% if items is not None %}
+
+{% for item in items %}
+
+<div class="item">
+    <p class="item_name">{{ item.name }}</p>
+    <p>{{ item.desc }}</p>
+    <p>{{ item.cond }}</p>
+    <p>{{ item.price }}</p>
+    <button><a href="{% url "purchase" item.id %}">Buy</a></button>
+    <button><a href="{% url "update" item.id %}">Edit</a></button>
+    <button><a href="{% url "delete" item.id %}">Delete</a></button>
+</div>
+
+{% endfor %}
+
+{% endif %}
 
 {% endblock content %}
