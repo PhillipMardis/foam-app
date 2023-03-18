@@ -11,8 +11,10 @@
   </head>
   <body>
     <h1>TRANSFORMERS BUY AND SELL</h1>
+    <p>Hello, {{user.username}}!</p>
 
-    
+    <span>{{user.groups.all.0}} account</span>
+    <span><a href="{% url "logout" %}">Log out</a></span>
 
     {% block content %}
     {% for message in messages %}
@@ -21,6 +23,7 @@
 
   <button><a href="{% url "buy" %}">Browse Figures</a></button>
   <button><a href="{% url "post" %}">Sell</a></button>
+  <button><a href="{% url "all_posts" %}">View your posts</a></button>
 
     
     
