@@ -6,6 +6,8 @@ from django.contrib.auth.models import User, Group
 
 
 class postForm(forms.ModelForm):
+    price = forms.FloatField(min_value=1)
+
     class Meta:
         model = postModel
         exclude = ["user"]

@@ -22,9 +22,11 @@
         {% endfor %}
 
   <button><a href="{% url "buy" %}">Browse Figures</a></button>
+
+  {% if user.groups.all.0.name == "Premium" %}
   <button><a href="{% url "post" %}">Sell</a></button>
   <button><a href="{% url "all_posts" %}">View your posts</a></button>
-
+{% endif %}
     
     
     {% endblock content %}
