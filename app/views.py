@@ -16,10 +16,10 @@ from django.contrib.auth.decorators import login_required
 def signupView(request):
     form = CreateUserForm()
     if request.method == "POST":
-        print("test1")
+
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            print("test2")
+
             form.save()
 
             username = form.cleaned_data.get("username")
@@ -52,9 +52,9 @@ def loginView(request):
                 login(request, user)
                 messages.success(request, "Successfully logged in!")
                 return redirect("home")
-            else:
-                messages.info(request, "Username or password is incorrect")
-                return render(request, "login.html", context)
+        else:
+            messages.info(request, "Username or password is incorrect")
+            # return render(request, "login.html")
     context = {"form": form}
     return render(request, "login.html", context)
 
