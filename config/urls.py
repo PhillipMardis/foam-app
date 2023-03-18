@@ -22,6 +22,7 @@ urlpatterns = [
     path("post/", views.postView, name="post"),
     path("signup/", views.signupView, name="signup"),
     path("login/", views.loginView, name="login"),
+    path("logout/", views.logoutView, name="logout"),
     path("buy/", views.buyView, name="buy"),
     path("purchase/<pk>/", views.purchaseView, name="purchase"),
     path(
@@ -34,6 +35,6 @@ urlpatterns = [
     path(
         "successful_delete/<pk>/", views.successful_deleteView, name="successful_delete"
     ),
-    path("allusers/", views.allusersView, name="allusers"),
+    path("allposts/", views.all_postsView, name="all_posts"),
     path("admin/", admin.site.urls),
 ]
