@@ -18,14 +18,17 @@
 
 {% for item in items %}
 
+
+
 <div class="item">
     <p class="item_name">{{ item.name }}</p>
     <p>Seller: {{ item.user }}</p>
     <p>{{ item.desc }}</p>
     <p>{{ item.cond }}</p>
     <p>{{ item.price }}</p>
+{% if user.username != item.user.username %}
     <button><a href="{% url "purchase" item.id %}">Buy</a></button>
-    
+{% endif %}
 </div>
 
 {% endfor %}
