@@ -99,7 +99,13 @@ def postView(request):
 @login_required(login_url="login")
 def buyView(request):
     items = postModel.objects.all()
+    # test code
+    items = list(items)
 
+    # end test code
+    if items == []:
+        items = None
+    print(items)
     if request.method == "POST":
         form = buyForm(request.POST)
         return render(request, "buy.html", {"form": form, "items": items})
@@ -157,4 +163,7 @@ def all_postsView(request):
     user = request.user
     users_posts = user.user_posts.all()
     post_list = list(users_posts)
+    if post_list == []:
+        post_list = None
+    print(post_list)
     return render(request, "allposts.html", {"post_list": post_list})

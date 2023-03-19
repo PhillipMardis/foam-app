@@ -2,9 +2,9 @@
 
 <button class="button"><a href="{% url "home" %}">Home</a></button>
 <h1>BROWSE FOR AN ITEM</h1>
-<h3>Filter by:</h3>
+{% comment %} <h3>Filter by:</h3> {% endcomment %}
 
-<form action="{% url "buy" %}" method="POST">
+{% comment %} <form action="{% url "buy" %}" method="POST">
 
     {% csrf_token %}
     
@@ -12,27 +12,31 @@
     
     <button>GO!</button>
 
-</form>
+</form> {% endcomment %}
+
+
+{% if items is None %}
+
+<p>There are no items to display.</p>
+
+{% endif %}
+
 
 {% if items is not None %}
-
 {% for item in items %}
-
-
 
 <div class="item">
     <p class="item_name">{{ item.name }}</p>
     <p>Seller: {{ item.user }}</p>
     <p>{{ item.desc }}</p>
     <p>{{ item.cond }}</p>
-    <p>{{ item.price }}</p>
+    <p>${{ item.price }}</p>
 {% if user.username != item.user.username %}
     <button class="button"><a href="{% url "purchase" item.id %}">Buy</a></button>
 {% endif %}
 </div>
 
 {% endfor %}
-
 {% endif %}
 
 {% endblock content %}

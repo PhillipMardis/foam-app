@@ -2,6 +2,12 @@
 <button class="button"><a href="{% url "home" %}">Home</a></button>
 <h1>YOUR ITEMS</h1>
 
+{% if post_list is None %}
+
+<p>You have no items to display.</p>
+
+{% endif %}
+
 {% if post_list is not None %}
 {% for item in post_list %}
 
@@ -9,7 +15,7 @@
     <p class="item_name">{{ item.name }}</p>
     <p>{{ item.desc }}</p>
     <p>{{ item.cond }}</p>
-    <p>{{ item.price }}</p>
+    <p>${{ item.price }}</p>
     
     <button class="button"><a href="{% url "update" item.id %}">Edit</a></button>
     <button class="button"><a href="{% url "delete" item.id %}">Delete</a></button>
