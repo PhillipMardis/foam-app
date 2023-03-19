@@ -1,6 +1,6 @@
 {% extends 'home.html' %} {% block content %}
 
-<button><a href="{% url "home" %}">Home</a></button>
+<button class="button"><a href="{% url "home" %}">Home</a></button>
 <h1>BROWSE FOR AN ITEM</h1>
 <h3>Filter by:</h3>
 
@@ -27,7 +27,7 @@
     <p>{{ item.cond }}</p>
     <p>{{ item.price }}</p>
 {% if user.username != item.user.username %}
-    <button><a href="{% url "purchase" item.id %}">Buy</a></button>
+    <button class="button"><a href="{% url "purchase" item.id %}">Buy</a></button>
 {% endif %}
 </div>
 
