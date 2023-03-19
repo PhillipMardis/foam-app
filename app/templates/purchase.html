@@ -5,7 +5,7 @@
 <h3>{{ item.name }}</h3>
 <p>{{ item.desc }}</p>
 <p>{{ item.cond }}</p>
-<p>{{ item.price }}</p>
+<p>${{ item.price }}</p>
 
 <a href="{% url "buy" %}">Cancel</a>
 <button class="button"><a href="{% url "successful_purchase" item.id %}">Confirm Purchase</a></button>
