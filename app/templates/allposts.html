@@ -1,5 +1,5 @@
 {% extends 'home.html' %} {% block content %}
-<button><a href="{% url "home" %}">Home</a></button>
+<button class="button"><a href="{% url "home" %}">Home</a></button>
 <h1>YOUR ITEMS</h1>
 
 {% if post_list is not None %}
@@ -11,8 +11,8 @@
     <p>{{ item.cond }}</p>
     <p>{{ item.price }}</p>
     
-    <button><a href="{% url "update" item.id %}">Edit</a></button>
-    <button><a href="{% url "delete" item.id %}">Delete</a></button>
+    <button class="button"><a href="{% url "update" item.id %}">Edit</a></button>
+    <button class="button"><a href="{% url "delete" item.id %}">Delete</a></button>
 </div>
 
 {% endfor %}{% endif %} {% endblock content %}

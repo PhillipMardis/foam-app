@@ -8,6 +8,6 @@
 <p>{{ item.price }}</p>
 
 <a href="{% url "buy" %}">Cancel</a>
-<button><a href="{% url "successful_purchase" item.id %}">Confirm Purchase</a></button>
+<button class="button"><a href="{% url "successful_purchase" item.id %}">Confirm Purchase</a></button>
 
 {% endblock content %}

@@ -9,26 +9,31 @@
     <title>Document</title>
     <link rel="stylesheet" href={% static "style.css" %}>
   </head>
-  <body>
-    <h1>TRANSFORMERS BUY AND SELL</h1>
-    <p>Hello, {{user.username}}!</p>
-
-    <span>{{user.groups.all.0}} account</span>
-    <span><a href="{% url "logout" %}">Log out</a></span>
-
-    {% block content %}
-    {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-
-  <button><a href="{% url "buy" %}">Browse Figures</a></button>
-
-  {% if user.groups.all.0.name == "Premium" %}
-  <button><a href="{% url "post" %}">Sell</a></button>
-  <button><a href="{% url "all_posts" %}">View your posts</a></button>
-{% endif %}
+  <body class="background">
+    <p class="account_type">{{user.groups.all.0}} account  </p>
+    <a class="logout" href="{% url "logout" %}">Log out</a>
+    <button class="to_top"><a href="#">To Top</button></a>
+  
+    <h1 class="header"><a href="{% url "home" %}">TRANSFORMERS PARADISE</a></h1>
+    <div class="home">
     
-    
-    {% endblock content %}
+      <p class="hello">Hello, {{user.username}}!</p>
+      
+
+      {% block content %}
+      {% for message in messages %}
+              <p class="flash_message">{{ message }}</p>
+          {% endfor %}
+
+      <button class="button"><a href="{% url "buy" %}">Browse Figures</a></button>
+
+      {% if user.groups.all.0.name == "Premium" %}
+      <button class="button"><a href="{% url "post" %}">Sell</a></button>
+      <button class="button"><a href="{% url "all_posts" %}">View your posts</a></button>
+      {% endif %}
+      
+      
+      {% endblock content %}
+    </div>
   </body>
 </html>
